@@ -23,14 +23,12 @@ int main(int argc, char *argv[])
 
             (len = floydWarshallAlgorithm(mat, i, j)) ? printf("%d\n", len) : printf("-1\n");
             break;
-        case 'D':
-        case EOF:
-            break;
-
         default:
             break;
         }
     }
+
+    printf("\b \b");
 
     return 0;
 }
