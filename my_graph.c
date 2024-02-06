@@ -18,12 +18,14 @@ int main(int argc, char *argv[])
         case 'B':
             scanf("%d %d", &i, &j);
 
-            floydWarshallAlgorithm(mat, i, j) ? printf("True\n") : printf("False\n");
+            floydWarshallAlgorithm(mat, i, j) ? printf("True") : printf("False");
+            printf("\n");
             break;
         case 'C':
             scanf("%d %d", &i, &j);
 
-            (len = floydWarshallAlgorithm(mat, i, j)) ? printf("%d\n", len) : printf("-1\n");
+            (len = floydWarshallAlgorithm(mat, i, j)) ? printf("%d", len) : printf("-1");
+            printf("\n");
             break;
         case 'D':
             flag = 0;
