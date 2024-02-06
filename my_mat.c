@@ -25,11 +25,11 @@ int floydWarshallAlgorithm(int mat[][MAT_SIZE], int i, int j)
         }
     }
 
-    for (i = 0; i < MAT_SIZE; i++)
+    for (k = 0; k < MAT_SIZE; k++)
     {
-        for (j = 0; j < MAT_SIZE; j++)
+        for (i = 0; i < MAT_SIZE; i++)
         {
-            for (int k = 0; k < MAT_SIZE; k++)
+            for (j = 0; j < MAT_SIZE; j++)
             {
                 if (matCopy[i][j] == 0 && (i != j) && (matCopy[i][k] != 0 && matCopy[k][j] != 0))
                 {
