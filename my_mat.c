@@ -31,10 +31,12 @@ int floydWarshallAlgorithm(int mat[][MAT_SIZE], int i, int j)
         {
             for (j = 0; j < MAT_SIZE; j++)
             {
+                //original algorithm uses infinity where there's no edge -- here we add the distance for that case
                 if (matCopy[i][j] == 0 && (i != j) && (matCopy[i][k] != 0 && matCopy[k][j] != 0))
                 {
                     matCopy[i][j] = matCopy[i][k] + matCopy[k][j];
                 }
+                //regular addition according to the original algorithm
                 else if (((matCopy[k][j] != 0) && (matCopy[i][k] != 0) && (matCopy[i][j] > (matCopy[i][k] + matCopy[k][j]))))
                 {
                     matCopy[i][j] = matCopy[i][k] + matCopy[k][j];
