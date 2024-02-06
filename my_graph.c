@@ -6,7 +6,7 @@ int main(int argc, char *argv[])
     int len = 0, i = 0, j = 0, flag = 1;
     int mat[MAT_SIZE][MAT_SIZE] = {{0}};
 
-    while (flag)
+    while (flag || !EOF)
     {
         selection = getchar();
 
@@ -26,7 +26,6 @@ int main(int argc, char *argv[])
             (len = floydWarshallAlgorithm(mat, i, j)) ? printf("%d\n", len) : printf("-1\n");
             break;
         case 'D':
-        case EOF:
             flag = 0;
             break;
         default:
