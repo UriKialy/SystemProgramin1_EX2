@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
         }
     }
 
-    printf("\b \b");
+    printf("\033[A\033[C\033[C\033[C\033[C");
 
     return 0;
 }
