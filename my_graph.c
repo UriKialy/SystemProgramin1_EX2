@@ -2,8 +2,8 @@
 
 int main(int argc, char *argv[])
 {
-    int len = 0;
-    char selection = 0, i = 0, j = 0;
+    int len = 0, i = 0, j = 0;
+    char selection = 0;
     int mat[MAT_SIZE][MAT_SIZE] = {{0}};
 
     while ((selection = getchar()) != 'D' || selection != EOF)
