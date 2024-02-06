@@ -3,11 +3,13 @@
 int main(int argc, char *argv[])
 {
     char selection = 0;
-    int len = 0, i = 0, j = 0;
+    int len = 0, i = 0, j = 0, flag = 1;
     int mat[MAT_SIZE][MAT_SIZE] = {{0}};
 
-    while ((selection = getchar()) != 'D' || selection != EOF)
+    while (flag)
     {
+        selection = getchar();
+
         switch (selection)
         {
         case 'A':
@@ -22,6 +24,10 @@ int main(int argc, char *argv[])
             scanf("%d %d", &i, &j);
 
             (len = floydWarshallAlgorithm(mat, i, j)) ? printf("%d\n", len) : printf("-1\n");
+            break;
+        case 'D':
+        case EOF:
+            flag = 0;
             break;
         default:
             break;
