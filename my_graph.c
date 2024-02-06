@@ -14,14 +14,12 @@ int main(int argc, char *argv[])
             initMatrix(mat);
             break;
         case 'B':
-            i = getchar();
-            j = getchar();
+            scanf("%d %d", &i, &j);
 
             floydWarshallAlgorithm(mat, i, j) ? printf("True\n") : printf("False\n");
             break;
         case 'C':
-            i = getchar();
-            j = getchar();
+            scanf("%d %d", &i, &j);
 
             len = floydWarshallAlgorithm(mat, i, j) ? printf("%d\n", len) : printf("-1\n");
             break;
