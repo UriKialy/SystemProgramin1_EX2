@@ -5,6 +5,7 @@ int main(int argc, char *argv[])
     char selection = 0;
     int len = 0, i = 0, j = 0, flag = 1;
     int mat[MAT_SIZE][MAT_SIZE] = {{0}};
+    int lastIteration = 0;
 
     while (flag || !EOF)
     {
@@ -17,15 +18,11 @@ int main(int argc, char *argv[])
             break;
         case 'B':
             scanf("%d %d", &i, &j);
-
-            floydWarshallAlgorithm(mat, i, j) ? printf("True") : printf("False");
-            printf("\n");
+            floydWarshallAlgorithm(mat, i, j) ? printf("True\n") : printf("False\n");
             break;
         case 'C':
             scanf("%d %d", &i, &j);
-
-            (len = floydWarshallAlgorithm(mat, i, j)) ? printf("%d", len) : printf("-1");
-            printf("\n");
+            (len = floydWarshallAlgorithm(mat, i, j)) ? printf("%d\n", len) : printf("-1\n");
             break;
         case 'D':
             flag = 0;
@@ -33,9 +30,13 @@ int main(int argc, char *argv[])
         default:
             break;
         }
+
+        if (!flag && selection == 'D')
+            lastIteration = 1;
     }
 
-    printf("\b \b");
+    if (!lastIteration)
+        printf("\n");
 
     return 0;
 }
