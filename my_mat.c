@@ -7,12 +7,12 @@ void initMatrix(int mat[][MAT_SIZE])
     {
         for (j = 0; j < MAT_SIZE; j++)
         {
-            scanf("%d", mat[i][j]);
+            scanf("%d", &mat[i][j]);
         }
     }
 }
 
-int floydWarshallAlgorithm(int mat[][MAT_SIZE], int i, int j)
+int floydWarshallAlgorithm(int mat[][MAT_SIZE], int a, int b)
 {
     int i = 0, j = 0, k = 0;
     int matCopy[MAT_SIZE][MAT_SIZE] = {{0}};
@@ -45,5 +45,5 @@ int floydWarshallAlgorithm(int mat[][MAT_SIZE], int i, int j)
         }
     }
 
-    return matCopy[i][j];
+    return matCopy[a][b];
 }

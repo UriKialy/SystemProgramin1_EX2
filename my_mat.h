@@ -6,4 +6,4 @@
 void initMatrix(int mat[][MAT_SIZE]);
 
 /*the function will calculate the shortest path from i to j using the Floyd-Warshall algorithm*/
-int floydWarshallAlgorithm(int mat[][MAT_SIZE], int i, int j);
+int floydWarshallAlgorithm(int mat[][MAT_SIZE], int, int);
