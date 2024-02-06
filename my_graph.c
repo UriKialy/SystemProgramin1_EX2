@@ -17,13 +17,13 @@ int main(int argc, char *argv[])
         i = getchar();
         j = getchar();
 
-        floydWarshallAlgorithm(mat, i, j) ? printf("True") : printf("False");
+        floydWarshallAlgorithm(mat, i, j) ? printf("True\n") : printf("False\n");
         break;
     case 'C':
         i = getchar();
         j = getchar();
 
-        len = floydWarshallAlgorithm(mat, i, j) ? printf("%d", len) : printf("-1");
+        len = floydWarshallAlgorithm(mat, i, j) ? printf("%d\n", len) : printf("-1\n");
         break;
     case 'D':
     case EOF:
