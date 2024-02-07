@@ -48,7 +48,6 @@ int knapSack(int weights[], int values[] , int selected_bool[])
 
 int main(int argc, char* argv[])
 {
-    char item = 0;
     int indexer = 0;
     int result[ITEMS] = {0};
     int itemWeights[ITEMS] = {0};
@@ -56,20 +55,22 @@ int main(int argc, char* argv[])
 
     do
     {
-        item = getchar();
-        indexer = (int)(item - 'a');
+        indexer = (int)(getchar()- 'a');
         scanf("%d", &itemValues[indexer]);
-        scanf("%d", &itemWeights[indexer]);
-    } while (indexer <= ITEMS - 1);
+        scanf("%d ", &itemWeights[indexer]);
+    } while (indexer < ITEMS - 1);
+
+    indexer = (int)(getchar()- 'a');
+    scanf("%d", &itemValues[indexer]);
+    scanf("%d", &itemWeights[indexer]);
     
     
     printf("Maximum profit: %d", knapSack(itemWeights,itemValues,result));
-    printf("Selected Items: ");
-    for (indexer = 0; indexer < ITEMS - 1; indexer++)
+    printf("Selected Items:");
+    for (indexer = 0; indexer < ITEMS; indexer++)
     {
-        if(result[indexer]) {printf("%c ", (char)(indexer + 'a'));}
+        if(result[indexer]) {printf(" %c ", (char)(indexer + 'a'));}
     }
-    if(result[ITEMS - 1]) {printf("%c", (char)((ITEMS - 1) + 'a'));}
 
     return 0;
 }
