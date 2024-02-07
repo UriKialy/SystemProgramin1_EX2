@@ -10,7 +10,7 @@ int knapSack(int weights[], int values[] , int selected_bool[])
     int i = 0, sum = 0, currItem = 0,currWeight = 0, itemVal = 0, itemWeight = 0, inSum = 0;
     int mat[WEIGHT][ITEMS] ={{0}};
 
-    for (currItem = 1; currItem < ITEMS; currItem++)
+    for (currItem = 0; currItem < ITEMS; currItem++)
     {
         itemVal = values[currItem];
         itemWeight = weights[currItem];
@@ -69,7 +69,7 @@ int main(int argc, char* argv[])
     printf("Selected Items:");
     for (indexer = 0; indexer < ITEMS; indexer++)
     {
-        if(result[indexer]) {printf(" %c ", (char)(indexer + 'a'));}
+        if(result[indexer]) {printf(" %c", (char)(indexer + 'a'));}
     }
 
     return 0;
