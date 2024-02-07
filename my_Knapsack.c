@@ -48,6 +48,7 @@ int knapSack(int weights[], int values[] , int selected_bool[])
 
 int main(int argc, char* argv[])
 {
+    char item = 0;
     int indexer = 0;
     int result[ITEMS] = {0};
     int itemWeights[ITEMS] = {0};
@@ -55,7 +56,8 @@ int main(int argc, char* argv[])
 
     do
     {
-        indexer = (int)(getchar() - 'a');
+        item = getchar();
+        indexer = (int)(item - 'a');
         scanf("%d", &itemValues[indexer]);
         scanf("%d", &itemWeights[indexer]);
     } while (indexer <= ITEMS - 1);
