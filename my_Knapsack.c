@@ -67,7 +67,7 @@ int main(int argc, char* argv[])
     
     
     printf("Maximum profit: %d\n", knapSack(itemWeights,itemValues,result));
-    printf("Selected Items:");
+    printf("Selected items:");
     for (indexer = 0; indexer < ITEMS; indexer++)
     {
         if(result[indexer]) {printf(" %c", (char)(indexer + 'a'));}
