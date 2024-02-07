@@ -43,7 +43,7 @@ int knapSack(int weights[], int values[] , int selected_bool[])
 
     }
 
-    return sum;
+    return mat[ITEMS][WEIGHT];
 }
 
 int main(int argc, char* argv[])
