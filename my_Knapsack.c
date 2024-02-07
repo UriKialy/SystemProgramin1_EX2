@@ -15,7 +15,7 @@ int knapSack(int weights[], int values[] , int selected_bool[])
         itemVal = values[currItem];
         itemWeight = weights[currItem];
 
-        for (currWeight = 0; currWeight < WEIGHT; currWeight++)
+        for (currWeight = 0; currWeight < WEIGHT + 1; currWeight++)
         {
             if (itemWeight > currWeight)
             {
@@ -30,9 +30,9 @@ int knapSack(int weights[], int values[] , int selected_bool[])
 
     currWeight = WEIGHT;
 
-    for (i = ITEMS - 1; i <= 0; i--)
+    for (i = ITEMS - 1; i > 0; i--)
     {
-        inSum = (mat[i][WEIGHT - 1] != mat[i - 1][WEIGHT - 1]);
+        inSum = (mat[i][currWeight] != mat[i - 1][currWeight]);
 
         if(inSum || currWeight >= 0)
         {
@@ -65,7 +65,7 @@ int main(int argc, char* argv[])
     scanf("%d", &itemWeights[indexer]);
     
     
-    printf("Maximum profit: %d", knapSack(itemWeights,itemValues,result));
+    printf("Maximum profit: %d\n", knapSack(itemWeights,itemValues,result));
     printf("Selected Items:");
     for (indexer = 0; indexer < ITEMS; indexer++)
     {
