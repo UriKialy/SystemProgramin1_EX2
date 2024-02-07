@@ -15,7 +15,7 @@ int knapSack(int weights[], int values[] , int selected_bool[])
         itemVal = values[currItem - 1];
         itemWeight = weights[currItem - 1];
 
-        for (currWeight = 0; currWeight < WEIGHT + 1; currWeight++)
+        for (currWeight = 1; currWeight < WEIGHT + 1; currWeight++)
         {
             if (itemWeight > currWeight)
             {
