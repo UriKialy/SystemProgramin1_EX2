@@ -29,15 +29,16 @@ int knapSack(int weights[], int values[] , int selected_bool[])
     }
 
     currWeight = WEIGHT;
+    sum = mat[ITEMS][WEIGHT];
 
-    for (i = ITEMS; i > 0; i--)
+    for (i = ITEMS; i > 0 && sum > 0; i--)
     {
-        inSum = (mat[i][currWeight] != mat[i - 1][currWeight]);
+        inSum = (sum != mat[i - 1][currWeight]);
 
-        if(inSum || currWeight >= 0)
+        if(inSum)
         {
             selected_bool[i - 1] = 1;
-            sum += values[i - 1];
+            sum -= values[i - 1];
             currWeight -= weights[i - 1];
         }
 
