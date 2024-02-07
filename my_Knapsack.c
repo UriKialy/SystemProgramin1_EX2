@@ -8,12 +8,12 @@ int max(int a, int b){ return (a > b) ? a : b;}
 int knapSack(int weights[], int values[] , int selected_bool[])
 {
     int i = 0, sum = 0, currItem = 0,currWeight = 0, itemVal = 0, itemWeight = 0, inSum = 0;
-    int mat[WEIGHT][ITEMS] ={{0}};
+    int mat[ITEMS + 1][WEIGHT + 1] ={{0}};
 
-    for (currItem = 0; currItem < ITEMS; currItem++)
+    for (currItem = 1; currItem < ITEMS + 1; currItem++)
     {
-        itemVal = values[currItem];
-        itemWeight = weights[currItem];
+        itemVal = values[currItem - 1];
+        itemWeight = weights[currItem - 1];
 
         for (currWeight = 0; currWeight < WEIGHT + 1; currWeight++)
         {
@@ -30,15 +30,15 @@ int knapSack(int weights[], int values[] , int selected_bool[])
 
     currWeight = WEIGHT;
 
-    for (i = ITEMS - 1; i > 0; i--)
+    for (i = ITEMS; i > 0; i--)
     {
         inSum = (mat[i][currWeight] != mat[i - 1][currWeight]);
 
         if(inSum || currWeight >= 0)
         {
-            selected_bool[i] = 1;
-            sum += values[i];
-            currWeight -= weights[i];
+            selected_bool[i - 1] = 1;
+            sum += values[i - 1];
+            currWeight -= weights[i - 1];
         }
 
     }
