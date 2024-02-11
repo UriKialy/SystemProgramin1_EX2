@@ -47,35 +47,22 @@ int knapSack(int weights[], int values[] , int selected_bool[])
     return mat[ITEMS][WEIGHT];
 }
 
-/*
-Function will perform the fgets command and also remove the newline
-that might be at the end of the string - a known issue with fgets.
-input: size (int) - number of chars to read
-       str (char*) - string to read into
-output: none
-*/
-void myFgets(int size, char* str)
-{
-    fgets(str, size, stdin);
-    str[strcspn(str, "\n")] = 0;
-}
-
 int main(int argc, char* argv[])
 {
     int i = 0;
-    char items[ITEMS][WEIGHT] = {0};
+    char items[ITEMS][WEIGHT + 1] = {0};
     int result[ITEMS] = {0};
     int itemWeights[ITEMS] = {0};
     int itemValues[ITEMS] = {0};
 
     for (i = 0; i < ITEMS - 1; i++)
     {
-        myFgets(WEIGHT, items[i]);
+        scanf("%s", items[i]);
         scanf("%d", &itemValues[i]);
         scanf("%d ", &itemWeights[i]);
     }
 
-    myFgets(WEIGHT, items[ITEMS - 1]);
+    scanf("%s", items[ITEMS - 1]);
     scanf("%d", &itemValues[ITEMS - 1]);
     scanf("%d", &itemWeights[ITEMS - 1]);
     
