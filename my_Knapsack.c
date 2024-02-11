@@ -47,30 +47,44 @@ int knapSack(int weights[], int values[] , int selected_bool[])
     return mat[ITEMS][WEIGHT];
 }
 
+/*
+Function will perform the fgets command and also remove the newline
+that might be at the end of the string - a known issue with fgets.
+input: size (int) - number of chars to read
+       str (char*) - string to read into
+output: none
+*/
+void myFgets(int size, char* str)
+{
+    fgets(str, size, stdin);
+    str[strcspn(str, "\n")] = 0;
+}
+
 int main(int argc, char* argv[])
 {
-    int indexer = 0;
+    int i = 0;
+    char items[ITEMS][WEIGHT] = {0};
     int result[ITEMS] = {0};
     int itemWeights[ITEMS] = {0};
     int itemValues[ITEMS] = {0};
 
-    do
+    for (i = 0; i < ITEMS - 1; i++)
     {
-        indexer = (int)(getchar()- 'a');
-        scanf("%d", &itemValues[indexer]);
-        scanf("%d ", &itemWeights[indexer]);
-    } while (indexer < ITEMS - 1);
+        myFgets(WEIGHT, items[i]);
+        scanf("%d", &itemValues[i]);
+        scanf("%d ", &itemWeights[i]);
+    }
 
-    indexer = (int)(getchar()- 'a');
-    scanf("%d", &itemValues[indexer]);
-    scanf("%d", &itemWeights[indexer]);
+    myFgets(WEIGHT, items[ITEMS - 1]);
+    scanf("%d", &itemValues[ITEMS - 1]);
+    scanf("%d", &itemWeights[ITEMS - 1]);
     
     
     printf("Maximum profit: %d\n", knapSack(itemWeights,itemValues,result));
     printf("Selected items:");
-    for (indexer = 0; indexer < ITEMS; indexer++)
+    for (i = 0; i < ITEMS; i++)
     {
-        if(result[indexer]) {printf(" %c", (char)(indexer + 'a'));}
+        if(result[i]) {printf(" %s", items[i]);}
     }
 
     return 0;
